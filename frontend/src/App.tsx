@@ -1,34 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Game from './pages/game/game'
+import Header from './components/Header'
+import HeroSection from './components/HeroSection'
+import GameCategories from './components/GameCategories'
+import StatsSection from './components/StatsSection'
+import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState<'pages/home' | 'pages/game/game'>('pages/home')
+
+  const handleStartPlaying = () => {
+    setCurrentPage('pages/game/game')
+  }
+
+  const handleBackToHome = () => {
+    setCurrentPage('pages/home')
+  }
+
+  if (currentPage === 'pages/game/game') {
+    return <Game onBack={handleBackToHome} />
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <Header isHomePage={true}/>
+
+      {/* Main Content */}
+      <main className="main-content">
+        <div className="content-wrapper">
+          {/* Left Content Area */}
+          <div className="left-content">
+            <HeroSection onStartPlaying={handleStartPlaying} />
+            <GameCategories />
+            {/* <StatsSection /> */}
+          </div>
+
+          {/* Right Sidebar */}
+          <Sidebar />
+        </div>
+      </main>
+
+      <Footer />
+    </div>
   )
 }
 
