@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import Game from './pages/game/game'
-import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import GameCategories from './components/GameCategories'
-import StatsSection from './components/StatsSection'
-import Sidebar from './components/Sidebar'
-import Footer from './components/Footer'
+import Header from './common/components/Header'
+import HeroSection from './common/components/HeroSection'
+import GameCategories from './common/components/GameCategories'
+import Sidebar from './common/components/Sidebar'
+import Footer from './common/components/Footer'
 
 
 function App() {
