@@ -154,12 +154,15 @@ function Game({ onBack }: GameProps) {
           <div className="left-content">
             {/* Game Setup Section */}
             <section className="game-setup">
-              <div className="game-setup-content">
-                <h2 className="game-title">Welcome to Ball Knowledge Calculator!</h2>
-                <p className="game-subtitle">
-                  Enter your name to start your soccer knowledge journey
-                </p>
-                
+              <div className="game-setup-content" 
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start", // optional
+                  alignSelf: "flex-start", // keeps it stuck to top even if parent centers things
+                }}
+              >                
                 {!gameStarted ? (
                   <section className='game-setup'>
                     {!isSubmitted ? (
@@ -192,17 +195,16 @@ function Game({ onBack }: GameProps) {
               
               <div>
                 <SoccerFieldIcon/>
-                <p>Correct guesses:</p>
-                {/* {correctGuesses.map((p) => (
-                  <p>{p.name}</p>
-                ))} */}
-                <GuessGraph correctGuesses={correctGuesses}/>
+                {/* <GuessGraph correctGuesses={correctGuesses}/> */}
+                 <StatsSideBar playerName={playerName}/>
               </div>
               
             </section>
             <GameInstructions/>
           </div>
-          <StatsSideBar playerName={playerName}/>
+          {/* <StatsSideBar playerName={playerName}/> */}
+          {/* <p>Correct guesses:</p> */}
+          <GuessGraph correctGuesses={correctGuesses}/>
         </div>
       </main>
 

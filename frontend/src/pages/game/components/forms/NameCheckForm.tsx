@@ -41,7 +41,7 @@ export default function NameCheckForm(
         }
     }
     return (
-        <section className="trivia-section">
+        <section className="trivia-section" style={{display: "flex", flexDirection: "column", justifyContent: "flex-start",}}>
             <h2>Footballer Name Check</h2>
             <p>Enter the name of a footballer:</p>
             <form>

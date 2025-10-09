@@ -132,7 +132,8 @@ body {
 .left-content {
   display: flex;
   flex-direction: column;
-  gap: 5vh;
+  /* gap: 5vh; */
+  justify-content: flex-start; 
 }
 
 /* Hero Section */
